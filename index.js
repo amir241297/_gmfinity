@@ -62,7 +62,7 @@ app.post("/createAccount", (req, res) => {
                 await gmfinity_user.save()
 
                 res.send({"User Registered!":secure_password})
-                console.log(user)
+                console.log("Account Created Successfull !")
             }
         });
 
@@ -118,8 +118,8 @@ app.get("/fetchallpublicPlayListData", async (req, res) => {
 app.get("/fetchPrivatePlayListData", async (req, res) => {
     try {
         let data = await PrivatePlayListModel.find()
-        res.send({ "response": data })
-        console.log({ "response": data })
+        res.send(data)
+        console.log("data",data) 
     } catch (err) {
         res.send({ "Error While getting Public PlayList Data": err })
         console.log("Error While getting Public PlayList Data", err)
